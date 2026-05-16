@@ -7,9 +7,12 @@ set(CMAKE_CXX_STANDARD 17) #require c++17
 find_package(cpr REQUIRED) #require the libraries
 find_package(nlohmann_json REQUIRED)
 
+add_executable(Altitude #compile into executable
+    src/main.cpp
+    src/telemetry/fetcher/Fetcher.cpp
+) 
+
 target_link_libraries(Altitude PRIVATE #link the libraries
     cpr::cpr
     nlohmann_json::nlohmann_json
 )
-
-add_executable(Altitude src/main.cpp) #compile main.cpp into executable
