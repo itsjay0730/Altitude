@@ -3,6 +3,10 @@
 #include "Fetcher.hpp"
 
 std::string Fetcher::fetchOpenSky(){
+    cpr::Response response = cpr::Get(cpr::Url{"https://opensky-network.org/api/states/all"});
 
-    return "hello";
+    if(response.status_code == 200) {
+        return response.text;
+    }
+    return "Error";
 }
