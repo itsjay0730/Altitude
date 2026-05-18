@@ -4,5 +4,5 @@
 
 class Parser{
 public:
-    std::vector<AircraftState> parseOpenSky();
+    std::vector<AircraftState> parseOpenSky(const std::string& json);
 };
