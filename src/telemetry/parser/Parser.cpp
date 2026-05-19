@@ -31,4 +31,5 @@ std::vector<AircraftState> Parser::parseOpenSky(const std::string& json){
         vec.push_back(aircraft);
     }
 
+    return vec;
 }
