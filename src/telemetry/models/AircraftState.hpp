@@ -6,8 +6,8 @@ struct AircraftState{
     std::string callsign;
     std::string originCountry;
 
-    std::string time;
-    std::string lastContact;
+    long time;
+    long lastContact;
 
     double longitude;
     double latitude;
@@ -18,7 +18,7 @@ struct AircraftState{
     double altitudeRate;
     bool inAir;
 
-    double squawk;
-    double spi;
-    std::string source;
+    std::string squawk;
+    bool spi;
+    int source;
 };
