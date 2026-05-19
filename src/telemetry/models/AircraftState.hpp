@@ -1,7 +1,6 @@
 #pragma once
 #include <string>
 
-
 struct AircraftState{
     std::string icao24;
     std::string callsign;
