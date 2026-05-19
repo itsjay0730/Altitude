@@ -10,6 +10,7 @@ find_package(nlohmann_json REQUIRED)
 add_executable(Altitude #compile into executable
     src/main.cpp
     src/telemetry/fetcher/Fetcher.cpp
+    src/telemetry/parser/Parser.cpp
 ) 
 
 target_link_libraries(Altitude PRIVATE #link the libraries

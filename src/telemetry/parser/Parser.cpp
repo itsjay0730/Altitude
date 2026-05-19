@@ -12,21 +12,21 @@ std::vector<AircraftState> Parser::parseOpenSky(const std::string& json){
     for(const auto& state : states) {
         AircraftState aircraft;
 
-        aircraft.icao24 = state[0];
-        aircraft.callsign = state[1];
-        aircraft.originCountry = state[2];
-        aircraft.time = state[3];
-        aircraft.lastContact = state[4];
-        aircraft.longitude = state[5];
-        aircraft.latitude = state[6];
-        aircraft.altitude = state[7];
-        aircraft.inAir = state[8];
-        aircraft.velocity = state[9];
-        aircraft.direction = state[10];
-        aircraft.altitudeRate = state[11];
-        aircraft.squawk = state[14];
-        aircraft.spi = state[15];
-        aircraft.source = state[16];
+        if (!state[0].is_null()) aircraft.icao24 = state[0];
+        if (!state[1].is_null()) aircraft.callsign = state[1];
+        if (!state[2].is_null()) aircraft.originCountry = state[2];
+        if (!state[3].is_null()) aircraft.time = state[3];
+        if (!state[4].is_null()) aircraft.lastContact = state[4];
+        if (!state[5].is_null()) aircraft.longitude = state[5];
+        if (!state[6].is_null()) aircraft.latitude = state[6];
+        if (!state[7].is_null()) aircraft.altitude = state[7];
+        if (!state[8].is_null()) aircraft.inAir = !state[8];
+        if (!state[9].is_null()) aircraft.velocity = state[9];
+        if (!state[10].is_null()) aircraft.direction = state[10];
+        if (!state[11].is_null()) aircraft.altitudeRate = state[11];
+        if (!state[14].is_null()) aircraft.squawk = state[14];
+        if (!state[15].is_null()) aircraft.spi = state[15];
+        if (!state[16].is_null()) aircraft.source = state[16];
 
         vec.push_back(aircraft);
     }
