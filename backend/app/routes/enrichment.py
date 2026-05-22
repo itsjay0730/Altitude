@@ -1,7 +1,7 @@
 import os
 import requests
 from dotenv import load_dotenv
-from fastapi import FastAPI
+from fastapi import APIRouter
 
 load_dotenv()
 AIRLABS_API_KEY = os.getenv("AIRLABS_API_KEY")
