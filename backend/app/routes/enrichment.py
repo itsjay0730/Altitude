@@ -6,7 +6,9 @@ from fastapi import FastAPI
 load_dotenv()
 AIRLABS_API_KEY = os.getenv("AIRLABS_API_KEY")
 
-@app.get("/enrichment/{icao24}")
+router = APIRouter()
+
+@router.get("/enrichment/{icao24}")
 def enrichment(icao24: str):
     url = f"https://airlabs.co/api/v9/flights?api_key={API_KEY}&hex={icao24}"
 
