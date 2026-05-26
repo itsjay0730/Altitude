@@ -8,6 +8,15 @@ bool isCommerical(const std::string& callsign) {
     return std::isalpha(callsign[0]) && std::isalpha(callsign[1]) && std::isalpha(callsign[2]);
 }
 
+std::string strip(const std::string& callsign) {
+    size_t start = callsign.find_first_not_of(" ");
+    if(start == std::string::npos) return "";
+
+    size_t end = callsign.find_last_not_of(" ");
+
+    return callsign.substr(start, end - start + 1);
+}
+
 std::vector<AircraftState> Parser::parseOpenSky(const std::string& json){
     nlohmann::json data = nlohmann::json::parse(json);
     nlohmann::json states = data["states"];
@@ -15,7 +24,9 @@ std::vector<AircraftState> Parser::parseOpenSky(const std::string& json){
     std::vector<AircraftState> vec;
     
     for(const auto& state : states) {
-        // if(isCommerical(strip(state[1]))) {
+        std::string callsign = "";
+        if(!state[1].is_null()) callsign = state[1];
+        if(isCommerical(strip(callsign))) {
             AircraftState aircraft;
         
             if (!state[0].is_null()) aircraft.icao24 = state[0];
