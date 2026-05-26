@@ -13,5 +13,7 @@ def enrichment(icao: str):
     url = f"https://airlabs.co/api/v9/flights?api_key={AIRLABS_API_KEY}&hex={icao}"
 
     response = requests.get(url)
-    return response.json()
+    data = response.json()
+
+    return data.get("response", [])
 
