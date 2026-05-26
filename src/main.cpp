@@ -32,7 +32,9 @@ int main() {
     std::string results = fetcher.fetchOpenSky();
     
     std::vector<AircraftState> planes = parser.parseOpenSky(results);
-    printPlane(planes[0]);
+    for(int i = 0; i < 100; i++) {
+        printPlane(planes[i]);
+    }
 
 
     return 0;
