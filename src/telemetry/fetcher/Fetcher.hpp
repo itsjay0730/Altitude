@@ -4,6 +4,4 @@
 class Fetcher{
 public:
     std::string fetchOpenSky();
-
-    std::string fetchX();
 };

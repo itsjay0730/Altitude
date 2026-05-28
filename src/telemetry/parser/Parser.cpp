@@ -26,6 +26,7 @@ std::vector<AircraftState> Parser::parseOpenSky(const std::string& json){
     for(const auto& state : states) {
         std::string callsign = "";
         if(!state[1].is_null()) callsign = state[1];
+        
         if(isCommerical(strip(callsign))) {
             AircraftState aircraft;
         
