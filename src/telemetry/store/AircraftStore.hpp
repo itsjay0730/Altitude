@@ -10,6 +10,6 @@ private:
 public:
 
     void update(const std::vector<AircraftState>& aircrafts);
-
+    void removeStale();
     std::vector<AircraftState> getAll();
 };
