@@ -12,6 +12,7 @@ add_executable(Altitude #compile into executable
     src/telemetry/fetcher/Fetcher.cpp
     src/telemetry/parser/Parser.cpp
     src/telemetry/store/AircraftStore.cpp
+    src/telemetry/io/SnapshotWriter.cpp
 ) 
 
 target_link_libraries(Altitude PRIVATE #link the libraries
