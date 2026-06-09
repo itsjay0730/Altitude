@@ -6,11 +6,14 @@
 #include "telemetry/fetcher/Fetcher.hpp"
 #include "telemetry/parser/Parser.hpp"
 #include "telemetry/store/AircraftStore.hpp"
+#include "telemetry/io/SnapshotWriter.hpp"
 
 int main() {
     Fetcher fetcher;
     Parser parser;
     AircraftStore store;
+    SnapshotWriter writer("data/live_aircraft.json");
+
 
     while(true) {
         try {
@@ -21,6 +24,8 @@ int main() {
             store.removeStale();
 
             std::vector<AircraftState> allAircrafts = store.getAll();
+
+            writer.writeAtomic(allAircrafts);
 
             //Just a test
             std::cout << "Live Aircrafts: " << allAircrafts.size() << std::endl;
